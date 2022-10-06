@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block navbar %}
+<header id="header" class="fixed-top d-flex justify-content-center align-items-center ">
+
+  <nav id="navbar" class="navbar">
+    <ul>
+      <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
+      <li><a class="nav-link scrollto" href="{% url 'home' %}">About</a></li>
+      <li><a class="nav-link scrollto" href="{% url 'awards' %}">Awards</a></li>
+      <li><a class="nav-link scrollto" href="{% url 'services' %}">Services</a></li>
+      <li><a class="nav-link scrollto" href="">Contact</a></li>
+    </ul>
+    <i class="bi bi-list mobile-nav-toggle"></i>
+  </nav><!-- .navbar -->
+
+</header><!-- End Header -->
+{% endblock navbar %}
+
+{% block main %}
+{% for service in services %}
+<div class="col-md-8 container mt-5 ">
+    <div class="card mb-3 mt-5">
+        <img src="{{ service.thumbURL }}" class="card-img-top" alt="...">
+
+        <h5 class="card-header text-center py-4" style="color: #27ff2e">{{service.title }}</h5>
+        <div class="card-body" style=" background-color: #27ff2e;">
+              <p class="card-text">{{ service.description|truncatewords:50  }}</p>
+              <a href="#" class="btn btn-success btn-lg mx-lg-5 mt-3" tabindex="-1" role="button" aria-disabled="true" >View More...</a>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock main %}

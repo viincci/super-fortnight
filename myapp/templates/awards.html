@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block navbar %}
+<header id="header" class="fixed-top d-flex justify-content-center align-items-center ">
+
+  <nav id="navbar" class="navbar">
+    <ul>
+      <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
+      <li><a class="nav-link scrollto" href="{% url 'home' %}">About</a></li>
+      <li><a class="nav-link scrollto" href="{% url 'awards' %}">Awards</a></li>
+      <li><a class="nav-link scrollto" href="{% url 'services' %}">Services</a></li>
+      <li><a class="nav-link scrollto" href="">Contact</a></li>
+    </ul>
+    <i class="bi bi-list mobile-nav-toggle"></i>
+  </nav><!-- .navbar -->
+
+</header><!-- End Header -->
+{% endblock navbar %}
+
+{% block main %}
+<section class="inner-page">
+  <div class="container">
+    <div class="container px-md-4 py-5" id="custom-cards">
+
+      <h2 class="pb-2 border-bottom">Clover Mama Afrika </h2>
+      <div class="row g-3">
+        {% for award in clover %}
+        <div class="col col-md-4 col-sm-10">
+          <div class="card mb-10 h-100 card-cover  overflow-hidden text-white  rounded-5 shadow-lg mt-5"
+          style="width: 18rem; background-color: #27ff2e;">
+          <img src="{{ award.imageURL }}" class="card-img-top rounded border-bottom border border-warning" alt="..." height="300px">
+          <div class="card-body">
+            <h5 class="card-title card-header bg-success rounded">{{ award.title }}</h5>
+            <p class="card-text">{{ award.description }}</p>
+          </div>
+          <div class="position-reletive col-12 mt-3">
+            <ul class="list-group list-group-flush list-group-item-dark position-absolute bottom-0 start-50 translate-middle-x">
+            <li class="list-group-item " style="background-color: #eeff00;">Position: <span class="text-white">{{ award.Position }}</span></li>
+            
+            <li class="list-group-item "  style="background-color: #eeff00;">Year: <span class="text-white">{{ award.Year }}</span> </li>
+          </ul>
+          </div>
+          
+          <div class="card-body  mx-auto px-5 ">
+            
+           
+            
+            
+          </div>
+        </div>
+        </div>
+        
+
+        {% endfor %}
+      </div>
+    </div>
+    <div class="container px-md-4 py-5" id="custom-cards">
+
+      <h2 class="pb-2 border-bottom">Others</h2>
+      <div class="row g-3">
+        {% for award in others %}
+        <div class="col col-md-4 col-sm-10 ">
+          <div class="card mb-10 h-100 card-cover  overflow-hidden text-white  rounded-5 shadow-lg mt-5 "
+          style="width: 18rem; background-color: #27ff2e;">
+          <img src="{{ award.imageURL }}" class="card-img-top rounded border-bottom border border-warning" alt="..." height="300px">
+          <div class="card-body">
+            <h5 class="card-title card-header bg-success rounded">{{ award.title }}</h5>
+            <p class="card-text">{{ award.description }}</p>
+          </div>
+          <div class="position-reletive col-12 mt-3">
+            <ul class="list-group list-group-flush list-group-item-dark position-absolute bottom-0 start-50 translate-middle-x">
+            <li class="list-group-item"  style="background-color: #eeff00;">Position: <span class="text-white">{{ award.Position }}</span></li>
+            
+            <li class="list-group-item "  style="background-color: #eeff00;">Year: <span class="text-white">{{ award.Year }}</span> </li>
+          </ul>
+          </div>
+          
+          <div class="card-body  mx-auto px-5 ">
+            
+           
+            
+            
+          </div>
+        </div>
+        </div>
+        
+
+        {% endfor %}
+      </div>
+    </div>
+    
+      <div class="container">
+        <div class="div">{{ cat.name }}</div>
+      </div>
+    
+</section>
+{% endblock main %}

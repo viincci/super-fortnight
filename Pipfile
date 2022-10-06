@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+asgiref = "==3.5.0"
+django = "==4.0.3"
+django-appconf = "==1.0.5"
+django-imagekit = "==4.1.0"
+gunicorn = "==20.1.0"
+pilkit = "==2.0"
+pillow = "==9.1.0"
+six = "==1.16.0"
+sqlparse = "==0.4.2"
+tzdata = "==2022.1"
+whitenoise = "==6.0.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
